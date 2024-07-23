@@ -1,17 +1,19 @@
 import React from "react";
 import ReactDOM from 'react-dom/client';
 
-function Car(props){
-    return <h1>I am a {props.color} car</h1>
-}
-function Garage(){
+
+const cars = [];
+function Garage(props){
+    const cars = props.cars;
     return(
         <>
-        <h1>Who lives in my garage</h1>
-        <Car/>
+        {cars.length>0 && 
+        <h2>You have {cars.length} cars</h2>
+        }
         </>
     )
 }
-const root = ReactDOM.createRoot(document.getElementById('sandy'));
 
-root.render(<Garage/>)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(<Garage cars={cars}/>)
